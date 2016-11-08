@@ -1,0 +1,28 @@
+{
+  "name": "polymer-latex",
+  "authors": [
+    "Dimitar Danailov <dimityr.danailov@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "keywords": [
+    "polymer",
+    "latex",
+    "math"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "webcomponentsjs": "^0.7.22",
+    "polymer": "^1.6.0",
+    "LaTeX2HTML5": "https://github.com/pyramation/LaTeX2HTML5.git"
+  }
+}

@@ -1,0 +1,116 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="equation-editor-text">
+    <style>
+        :host {
+            position: relative;
+
+            display: block;
+        }
+    </style>
+
+    <template>
+        Equation editor - LaTeX
+
+        <h1>LaTeX</h1>
+        <script type="tex/latex" contenteditable="true">
+
+        \begin{pspicture}(0,-3)(8,3)
+        \rput(0,0){$x(t)$}
+        \rput(4,1.5){$f(t)$}
+        \rput(4,-1.5){$g(t)$}
+        \rput(8.2,0){$y(t)$}
+        \rput(1.5,-2){$h(t)$}
+        \psframe(1,-2.5)(7,2.5)
+        \psframe(3,1)(5,2)
+        \psframe(3,-1)(5,-2)
+        \rput(4,0){$X_k = \frac{1}{p} \sum \limits_{n=\langle p\rangle}x(n)e^{-ik\omega_0n}$}
+        \psline{->}(0.5,0)(1.5,0)
+        \psline{->}(1.5,1.5)(3,1.5)
+        \psline{->}(1.5,-1.5)(3,-1.5)
+        \psline{->}(6.5,1.5)(6.5,0.25)
+        \psline{->}(6.5,-1.5)(6.5,-0.25)
+        \psline{->}(6.75,0)(7.75,0)
+        \psline(1.5,-1.5)(1.5,1.5)
+        \psline(5,1.5)(6.5,1.5)
+        \psline(5,-1.5)(6.5,-1.5)
+        \psline(6,-1.5)(6.5,-1.5)
+        \pscircle(6.5,0){0.25}
+        \psline(6.25,0)(6.75,0)
+        \psline(6.5,0.5)(6.5,-0.5)
+        \end{pspicture}
+        Many of us think our thoughts using a language of some sort---there is usually some voice in our minds. Language in some ways, makes us who we are. Some even argue in the world of cognitive science that language is the foundation of our consciousness. 
+
+        Which can be produced with the following \TeX:
+
+        \begin{center}
+        \begin{pspicture}(-5,-5)(5,5)
+        \psline{->}(0,-3.75)(0,3.75)
+        \psline{->}(-3.75,0)(3.75,0)
+        \pscircle(0,0){ 3 } 
+        \end{pspicture}
+        \end{center}
+
+        $$\int_0^\infty H(\omega)e^{i\omega x} dx$$
+        The square root of 100 is $\sqrt{100}=10$
+        Fraction: $\frac{2}{5}$
+        Exponent: ${2}^{5}$
+
+        \begin{pspicture}(-8,-2)(8,2)
+        \psplot[algebraic,linewidth=2pt,fillstyle=solid, fillcolor=lightblue]{-3.14}{3.14}{sin(x)}
+        \psplot[algebraic,linewidth=2pt]{-6.2831}{6.2831}{sin(x)}
+        \rput(6.2831853,1.3){$\left|H(\omega)\right|$}
+        \psline(-6.6831853, 0)(6.6831853, 0)
+        \rput(6.6831853,-0.3){$\omega$}
+        \psline(-6.2831853, -0.1)(-6.2831853, 0.1)
+        \rput(-6.2831853, -0.3){$-2\pi$}
+        \psline(-4.712388975, -0.1)(-4.712388975, 0.1)
+        \rput(-4.712388975, -0.3){$-\frac{3\pi}{2}$}
+        \psline(-3.14159265, -0.1)(-3.14159265, 0.1)
+        \rput(-3.14159265, -0.3){$-\pi$}
+        \psline(-1.570796325, -0.1)(-1.570796325, 0.1)
+        \rput(-1.570796325, -0.3){$-\frac{\pi}{2}$}
+        \psline(0, -0.1)(0, 0.1)
+        \rput(0, -0.3){$0$}
+        \psline(1.570796325, -0.1)(1.570796325, 0.1)
+        \rput(1.570796325, -0.3){$\frac{\pi}{2}$}
+        \psline(3.14159265, -0.1)(3.14159265, 0.1)
+        \rput(3.14159265, -0.3){$\pi$}
+        \psline(4.712388975, -0.1)(4.712388975, 0.1)
+        \rput(4.712388975, -0.3){$\frac{3\pi}{2}$}
+        \psline(6.2831853, -0.1)(6.2831853, 0.1)
+        \rput(6.2831853, -0.3){$2\pi$}
+        \end{pspicture}
+
+        An author who has in their minds representations of intelligent concepts should be able to freely express herself through language with free association---digital expressions of these ideas in some cases requires total control of the computer and all of its processes. 
+
+        The vision behind the personal computer was that any person could have full command of the functions of their device. I think this vision has come true to some degree, but not fully when it comes to creating graphics, especially mathematical diagrams online. 
+        
+        Does the common mathematician or professor have the ability to express concepts through web technology? The Web has its own language, and the goal of this project is to help blur the lines between what authoring the mathematical Web should be like and typesetting beautiful Math.
+        If you know \LaTeX, then get ready to author interactive diagrams in real-time (try using mouse or touch to interact with diagrams).
+        \begin{interactive}
+        \waypoint{Lines And Vectors}
+        What matters most is minimizing the distance between our expression of an idea and the execution of that idea. For example, I can describe a vector at $(0,0)$ and initial value of the head at $(2,2)$ that will follow a user touch or mouse event. This will produce the following interaction:
+        </script>
+
+    </template>
+
+    <script>
+        Polymer({
+            is: 'equation-editor-text',
+
+            properties: {
+
+            },
+
+            behaviors : [
+            ],
+
+            ready: function() {
+                var tagName = this.tagName.toLowerCase();
+                console.log(tagName);
+                $(tagName).latex();
+            }
+        });
+    </script>
+</dom-module>
